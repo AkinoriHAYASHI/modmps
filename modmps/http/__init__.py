@@ -19,4 +19,3 @@ __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
 from modmps.http.api_executor.api_executor import ApiExecutor
 from modmps.http.oauth2 import oauth2
-from modmps.http.oauth2 import google
