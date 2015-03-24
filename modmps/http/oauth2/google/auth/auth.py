@@ -43,9 +43,6 @@ class AccessTokenRequester(base.AccessTokenRequester):
         }
         super(AccessTokenRequester, self).__init__(base_url, code, redirect_uri, client_id, grant_type, extra_params)
 
-    def get_token(self, parameters={}):
-        self.post_data(parameters)
-
 class AccessTokenRefreshRequester(base.AccessTokenRefreshRequester):
     def __init__(self, refresh_token, client_id, client_secret, grant_type='refresh_token'):
         base_url = 'https://www.googleapis.com/oauth2/v3/token'
@@ -55,6 +52,3 @@ class AccessTokenRefreshRequester(base.AccessTokenRefreshRequester):
         }
         super(AccessTokenRefreshRequester, self).__init__(base_url, refresh_token,
                                                           grant_type=grant_type, extra_params=extra_params)
-
-    def get_token(self, parameters={}):
-        self.post_data(parameters)
