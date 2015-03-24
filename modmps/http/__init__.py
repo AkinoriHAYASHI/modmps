@@ -18,4 +18,3 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
 from modmps.http.api_executor.api_executor import ApiExecutor
-from modmps.http.oauth2 import oauth2
