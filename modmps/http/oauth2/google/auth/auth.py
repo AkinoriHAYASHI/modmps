@@ -56,5 +56,5 @@ class AccessTokenRefreshRequester(base.AccessTokenRefreshRequester):
         super(AccessTokenRefreshRequester, self).__init__(base_url, refresh_token,
                                                           grant_type=grant_type, extra_params=extra_params)
 
-    def get_token(self, parameters):
+    def get_token(self, parameters={}):
         self.post_data(parameters)

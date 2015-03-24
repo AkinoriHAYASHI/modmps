@@ -32,7 +32,7 @@ class AuthRequester(ApiExecutor):
         params.update(extra_params)
         super(AuthRequester, self).__init__(base_url, params)
 
-    def get_url(self, parameters):
+    def get_url(self, parameters={}):
         return self._get_url_with_query_string(parameters)
 
 class AccessTokenRequester(ApiExecutor):
@@ -46,7 +46,7 @@ class AccessTokenRequester(ApiExecutor):
         params.update(extra_params)
         super(AccessTokenRequester, self).__init__(base_url, params)
 
-    def get_token(self, parameters):
+    def get_token(self, parameters={}):
         raise Exception('get_token method is not implemented.')
 
 class AccessTokenRefreshRequester(ApiExecutor):
@@ -59,5 +59,5 @@ class AccessTokenRefreshRequester(ApiExecutor):
         params.update(extra_params)
         super(AccessTokenRefreshRequester, self).__init__(base_url, params)
 
-    def get_token(self, parameters):
+    def get_token(self, parameters={}):
         raise Exception('get_token method is not implemented.')
