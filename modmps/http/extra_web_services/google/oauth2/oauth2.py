@@ -18,6 +18,7 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
 from modmps.http import oauth2
+from modmps.http import api_executor
 
 class AuthRequester(oauth2.AuthRequester):
     def __init__(self, client_id, redirect_uri, scope, response_type='code', state=None,
@@ -52,3 +53,9 @@ class AccessTokenRefreshRequester(oauth2.AccessTokenRefreshRequester):
         }
         super(AccessTokenRefreshRequester, self).__init__(base_url, refresh_token,
                                                           grant_type=grant_type, extra_params=extra_params)
+
+class UserinfoApiExecutor(api_executor.ApiExecutor):
+    def __init__(self, access_token):
+        base_url = 'https://www.googleapis.com/oauth2/v2/userinfo'
+        params = {'access_token': access_token}
+        super(UserinfoApiExecutor, self).__init__(base_url, params)
