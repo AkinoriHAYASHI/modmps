@@ -22,7 +22,7 @@ from modmps.http import api_executor
 
 class AuthRequester(oauth2.AuthRequester):
     def __init__(self, client_id, redirect_uri, scope, response_type='code', state=None,
-                 access_type='online', approval_prompt='auto', login_hint=None, include_granted_scopes='false'):
+                 access_type='offline', approval_prompt='auto', login_hint=None, include_granted_scopes='true'):
         base_url = 'https://accounts.google.com/o/oauth2/auth'
 
         extra_params = {
