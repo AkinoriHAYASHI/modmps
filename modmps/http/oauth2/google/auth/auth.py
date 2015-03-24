@@ -17,7 +17,7 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
-from modmps.http.oauth2 import base
+from modmps.http.oauth2.base import base
 
 class AuthRequester(base.AuthRequester):
     def __init__(self, client_id, redirect_uri, scope, response_type='code', state=None,
