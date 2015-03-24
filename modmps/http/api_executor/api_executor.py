@@ -115,7 +115,7 @@ class ApiExecutor:
             return self._convert_xml_to_json(byte_data)
 
     def get_data(self, parameters={}, decode_to='utf-8'):
-        self._execute(parameters, method='get', decode_to=decode_to)
+        return self._execute(parameters, method='get', decode_to=decode_to)
 
     def post_data(self, parameters={}, encode_to='utf-8', decode_to='utf-8'):
-        self._execute(parameters, method='post', encode_to=encode_to, decode_to=decode_to)
+        return self._execute(parameters, method='post', encode_to=encode_to, decode_to=decode_to)
