@@ -1,4 +1,4 @@
-"""Modules to use oauth2.
+"""Modules to request to https://www.googleapis.com/oauth2/v2/userinfo
 
 (c) 2015 Morning Project Samurai
 
@@ -17,4 +17,10 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
-from modmps.http.oauth2.oauth2 import *
+from modmps.http import api_executor
+
+class UserinfoApiExecutor(api_executor.ApiExecutor):
+    def __init__(self, access_token):
+        base_url = 'https://www.googleapis.com/oauth2/v2/userinfo'
+        params = {'access_token': access_token}
+        super(UserinfoApiExecutor, self).__init__(base_url, params)

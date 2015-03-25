@@ -1,4 +1,4 @@
-"""A module to be authenticated by google through OAuth2.
+"""Modules to request to https://www.googleapis.com/oauth2/v3/token
 
 (c) 2015 Morning Project Samurai
 
@@ -18,22 +18,6 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
 from modmps.http import oauth2
-from modmps.http import api_executor
-
-class AuthRequester(oauth2.AuthRequester):
-    def __init__(self, client_id, redirect_uri, scope, response_type='code', state=None,
-                 access_type='offline', approval_prompt='auto', login_hint=None, include_granted_scopes='true'):
-        base_url = 'https://accounts.google.com/o/oauth2/auth'
-
-        extra_params = {
-            'access_type': access_type,
-            'approval_prompt': approval_prompt,
-            'login_hint': login_hint,
-            'include_granted_scopes': include_granted_scopes,
-        }
-
-        super(AuthRequester, self).__init__(base_url,
-                                            client_id, response_type, redirect_uri, scope, state, extra_params)
 
 class AccessTokenRequester(oauth2.AccessTokenRequester):
     def __init__(self, code, client_id, client_secret, redirect_uri, grant_type='authorization_code'):
@@ -52,9 +36,3 @@ class AccessTokenRefreshRequester(oauth2.AccessTokenRefreshRequester):
         }
         super(AccessTokenRefreshRequester, self).__init__(base_url, refresh_token,
                                                           grant_type=grant_type, extra_params=extra_params)
-
-class UserinfoApiExecutor(api_executor.ApiExecutor):
-    def __init__(self, access_token):
-        base_url = 'https://www.googleapis.com/oauth2/v2/userinfo'
-        params = {'access_token': access_token}
-        super(UserinfoApiExecutor, self).__init__(base_url, params)

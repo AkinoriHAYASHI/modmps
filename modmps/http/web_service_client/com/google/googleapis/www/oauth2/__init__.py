@@ -1,4 +1,4 @@
-"""Modules to use oauth2.
+"""Clinet modules for web services under www.googleapis.google.com domain.
 
 (c) 2015 Morning Project Samurai
 
@@ -15,6 +15,5 @@ You should have received a copy of the GNU General Public License
 along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-__author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
-from modmps.http.oauth2.oauth2 import *
+__author__ = 'Junya Kaneko <junya@mpsamurai.org>'

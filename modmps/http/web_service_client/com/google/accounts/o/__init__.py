@@ -1,4 +1,4 @@
-"""Modules to use oauth2.
+"""Modules to request to https://accounts.google.com/o/oauth2/
 
 (c) 2015 Morning Project Samurai
 
@@ -16,5 +16,3 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 """
 
 __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
-
-from modmps.http.oauth2.oauth2 import *
