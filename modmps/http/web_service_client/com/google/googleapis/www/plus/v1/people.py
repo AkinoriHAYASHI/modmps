@@ -20,7 +20,7 @@ __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 from modmps.http.api_executor import ApiExecutor
 
 class PeopleApiExecutor(ApiExecutor):
-    def __init__(self, user_id, callback=None, fields=None, key=None, access_token=None, prettyPring=None, userIp=None):
+    def __init__(self, user_id, callback=None, fields=None, key=None, access_token=None, prettyPrint=None, userIp=None):
         base_url = 'https://www.googleapis.com/plus/v1/people/%s' % user_id
 
         if key is None and access_token is None:
@@ -33,7 +33,7 @@ class PeopleApiExecutor(ApiExecutor):
             'fields': fields,
             'key': key,
             'access_token': access_token,
-            'prettyPring': prettyPring,
+            'prettyPrint': prettyPrint,
             'userIp': userIp,
         }
 
