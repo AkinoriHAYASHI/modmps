@@ -35,7 +35,6 @@ class AuthRequester(oauth2.AuthRequester):
         super(AuthRequester, self).__init__(base_url,
                                             client_id, response_type, redirect_uri, scope, state, extra_params)
 
-
 class AccessTokenRequester(oauth2.AccessTokenRequester):
     def __init__(self, code, client_id, client_secret, redirect_uri, grant_type='authorization_code'):
         base_url = 'https://www.googleapis.com/oauth2/v3/token'
