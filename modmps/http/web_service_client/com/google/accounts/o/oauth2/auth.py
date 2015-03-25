@@ -21,7 +21,8 @@ from modmps.http import oauth2
 
 class AuthRequester(oauth2.AuthRequester):
     def __init__(self, client_id, redirect_uri, scope, response_type='code', state=None,
-                 access_type='offline', approval_prompt='auto', login_hint=None, include_granted_scopes='true'):
+                 access_type='offline', approval_prompt='auto', login_hint=None, include_granted_scopes='true',
+                 state_generator=oauth2.StateGenerator()):
         base_url = 'https://accounts.google.com/o/oauth2/auth'
 
         extra_params = {
@@ -31,5 +32,5 @@ class AuthRequester(oauth2.AuthRequester):
             'include_granted_scopes': include_granted_scopes,
         }
 
-        super(AuthRequester, self).__init__(base_url,
-                                            client_id, response_type, redirect_uri, scope, state, extra_params)
+        super(AuthRequester, self).__init__(base_url, client_id, response_type, redirect_uri, scope,
+                                            state, extra_params, state_generator)
