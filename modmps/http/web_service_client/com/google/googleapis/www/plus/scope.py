@@ -1,4 +1,4 @@
-"""Modules to request to https://www.googleapis.com/oauth2/v2/userinfo
+"""Modules to request to https://www.googleapis.com/plus/v1/people
 
 (c) 2015 Morning Project Samurai
 
@@ -17,10 +17,6 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 
 __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
-from modmps.http.api_executor import ApiExecutor
-
-class UserinfoApiExecutor(ApiExecutor):
-    def __init__(self, access_token):
-        base_url = 'https://www.googleapis.com/oauth2/v2/userinfo'
-        params = {'access_token': access_token}
-        super(UserinfoApiExecutor, self).__init__(base_url, params)
+PLUS_LOGIN = 'https://www.googleapis.com/auth/plus.login'
+PLUS_ME = 'https://www.googleapis.com/auth/plus.me'
+USERINFO_EMAIL = 'https://www.googleapis.com/auth/userinfo.email'
