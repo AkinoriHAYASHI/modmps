@@ -19,13 +19,9 @@ __author__ = 'Junya Kaneko <junya@mpsamurai.org>'
 
 from modmps.http.api_executor import ApiExecutor
 
-class StateGenerator:
-    def gen(self):
-        return 0
-
 class AuthRequester(ApiExecutor):
     def __init__(self,
-                 base_url, client_id, response_type='code', redirect_uri=None, scope=None, state=None, extra_params={}, state_generator=StateGenerator()):
+                 base_url, client_id, response_type='code', redirect_uri=None, scope=None, state=None, extra_params={}):
         params = {
             'response_type': response_type,
             'client_id': client_id,
@@ -33,9 +29,6 @@ class AuthRequester(ApiExecutor):
             'scope': scope,
             'state': state,
         }
-
-        if params['state'] is None:
-            params['state'] = state_generator.gen()
 
         params.update(extra_params)
         super(AuthRequester, self).__init__(base_url, params)
