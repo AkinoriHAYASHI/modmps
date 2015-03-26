@@ -56,6 +56,8 @@ class AccessTokenRequester(ApiExecutor):
             return self.post_data(parameters, decode_to=decode_to, encode_to=encode_to)
         elif method == 'get':
             return self.get_data(parameters, decode_to=decode_to)
+        else:
+            raise Exception('Invalid HTTP Method.')
 
 class AccessTokenRefreshRequester(ApiExecutor):
     def __init__(self, base_url, refresh_token, scope=None, grant_type='refresh_token', extra_params={}):
@@ -72,3 +74,5 @@ class AccessTokenRefreshRequester(ApiExecutor):
             return self.post_data(parameters, decode_to=decode_to, encode_to=encode_to)
         elif method == 'get':
             return self.get_data(parameters, decode_to=decode_to)
+        else:
+            raise Exception('Invalid HTTP Method.')
