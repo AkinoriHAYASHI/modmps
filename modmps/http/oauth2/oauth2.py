@@ -51,8 +51,11 @@ class AccessTokenRequester(ApiExecutor):
         params.update(extra_params)
         super(AccessTokenRequester, self).__init__(base_url, params)
 
-    def get_token(self, parameters={}):
-        return self.post_data(parameters)
+    def get_token(self, parameters={}, method='post', decode_to='utf-8', encode_to='utf-8'):
+        if method == 'post':
+            return self.post_data(parameters, decode_to=decode_to, encode_to=encode_to)
+        elif method == 'get':
+            return self.get_data(parameters, decode_to=decode_to)
 
 class AccessTokenRefreshRequester(ApiExecutor):
     def __init__(self, base_url, refresh_token, scope=None, grant_type='refresh_token', extra_params={}):
@@ -64,5 +67,8 @@ class AccessTokenRefreshRequester(ApiExecutor):
         params.update(extra_params)
         super(AccessTokenRefreshRequester, self).__init__(base_url, params)
 
-    def get_token(self, parameters={}):
-        return self.post_data(parameters)
+    def get_token(self, parameters={}, method='post', decode_to='utf-8', encode_to='utf-8'):
+        if method == 'post':
+            return self.post_data(parameters, decode_to=decode_to, encode_to=encode_to)
+        elif method == 'get':
+            return self.get_data(parameters, decode_to=decode_to)
