@@ -67,4 +67,3 @@ class AccessTokenRefreshRequester(ApiExecutor):
 
     def get_token(self, parameters={}, method='post', decode_to='utf-8', encode_to='utf-8'):
         return self._execute(parameters, method=method, decode_to=decode_to, encode_to=encode_to)
-
